@@ -19,9 +19,6 @@ RUN yum -y install \
     libXi \
    libXrender
 
-COPY ./ ./
-
-
 COPY ./data ./data
 
 RUN yum -y install libXtst

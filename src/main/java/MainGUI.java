@@ -234,11 +234,11 @@ public class MainGUI extends JDialog {
         for (int i = 0; i <= files.size() - 1; i++) {
 
             FileUtils.copyFile(files.get(i), new File("./datafolder/" + rand_int + "/" + files.get(i).getName()));
-
-            //if (files.get(i).getName().substring(files.get(i).getName().length() - 3, files.get(i).getName().length()) == ".gz") {
+            System.out.println(files.get(i).getName().substring(files.get(i).getName().length() - 3, files.get(i).getName().length()));
+            if (files.get(i).getName().substring(files.get(i).getName().length() - 3, files.get(i).getName().length()).equals(".gz")) {
             unTarGz("./datafolder/" + rand_int + "/" + files.get(i).getName(), new File("./datafolder/" + rand_int + "/"));
             FileUtils.forceDelete(new File("./datafolder/" + rand_int + "/" + files.get(i).getName()));
-            //}
+            }
 
             AuthCredentials authCredentials = AuthCredentials.createForJson(new FileInputStream("./credentials.json"));
             Storage storage = (Storage) StorageOptions.builder().projectId(projectId).authCredentials(authCredentials).build().service();

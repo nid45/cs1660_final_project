@@ -167,11 +167,11 @@ public class TermIn extends JDialog {
                         }
                         if (bool) {
                             bool = false;
-                        } else {
+                        }
                             String[] elements = temp.split(":");
                             output.append("Document: " + elements[0] + "  ");
                             output.append("Occurrences: " + elements[1] + "\n");
-                        }
+
                     } else {
                     }
                 }
@@ -189,11 +189,17 @@ public class TermIn extends JDialog {
         textArea.setWrapStyleWord(true);
         scrollPane.setPreferredSize(new Dimension(500, 500));
         JOptionPane.showMessageDialog(null, scrollPane, "Inverted Index Results", JOptionPane.YES_NO_OPTION);
+        if (JOptionPane.showConfirmDialog(null, "return to options menu", "WARNING",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            dispose();
+            ChooseOption dialog = new ChooseOption();
+            dialog.pack();
+            dialog.setVisible(true);
 
+        }
     }
 
     private void onCancel() {
-        // add your code here if necessary
         dispose();
     }
 
