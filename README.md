@@ -13,3 +13,9 @@ docker run -e DISPLAY=host.docker.internal:0 -v /tmp/.X11-unix:/tmp/.X11-unix ni
 
 
 Demo and code walkthrough: https://pitt-my.sharepoint.com/:v:/g/personal/nid45_pitt_edu/EXuGOFlJ6r9NiBytlHdYMrMBn4qHWb54ALB6QCWYN6Nsog?e=5zfNOi
+
+
+Running on different cluster:
+place credentials.json in main directory  (cs1660-finalproject)
+
+change gcpvars file so that each of the values match with the cluster  you are trying to run
