@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="commons-cli-1.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Desktop/cs1660_hw3/com/wordcount/commons-cli-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Desktop/cs1660_hw3/com/wordcount/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Desktop/cs1660_hw3/com/wordcount/hadoop-common-2.6.0-cdh5.15.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Desktop/cs1660_hw3/com/wordcount/hadoop-mapreduce-client-core-2.6.0-cdh5.15.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

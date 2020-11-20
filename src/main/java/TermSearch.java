@@ -1,38 +1,15 @@
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Counter;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.Mapper.Context;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.security.token.delegation.ZKDelegationTokenSecretManager.JaasConfiguration;
 import org.apache.hadoop.util.GenericOptionsParser;
-import org.apache.hadoop.util.StringUtils;
 
-import java.awt.List;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.StringTokenizer;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
 
 public class TermSearch {
@@ -104,7 +81,7 @@ public class TermSearch {
 
 
 
-
+        //https://stackoverflow.com/questions/109383/sort-a-mapkey-value-by-values
         public static <K extends Comparable, V extends Comparable> Map<K, V> sortByValues(Map<K, V> map) {
             LinkedList<Map.Entry<K, V>> entries = new LinkedList<Map.Entry<K, V>>(map.entrySet());
 

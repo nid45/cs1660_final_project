@@ -19,6 +19,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+
+//https://andreaiacono.blogspot.com/2014/03/mapreduce-for-top-n-items.html
+
 public class TopN {
 
     public static void main(String[] args) throws Exception {

@@ -1,30 +1,18 @@
 
 //source (with some alterations) - https://github.com/imehrdadmahdavi/map-reduce-inverted-index/blob/master/InvertedIndex.java
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Counter;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.util.GenericOptionsParser;
-import org.apache.hadoop.util.StringUtils;
+
+import java.io.IOException;
+import java.util.*;
 
 //modified from WordCount code provided on 'Hadoop Project GCP Gudie'
 public class InvertedIndex
