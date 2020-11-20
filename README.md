@@ -10,3 +10,6 @@ docker pull nid45/cs1660-final
 
 
 docker run -e DISPLAY=host.docker.internal:0 -v /tmp/.X11-unix:/tmp/.X11-unix nid45/cs1660-final
+
+
+Demo and code walkthrough: https://pitt-my.sharepoint.com/:v:/g/personal/nid45_pitt_edu/EXuGOFlJ6r9NiBytlHdYMrMBn4qHWb54ALB6QCWYN6Nsog?e=5zfNOi
