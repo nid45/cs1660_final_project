@@ -2,9 +2,9 @@ cs1660_final_project
 
 Docker hub repository:  https://hub.docker.com/repository/docker/nid45/cs1660-final
 
-commands (Mac) - with XQuartz running//
+commands (Mac or windows) - with XQuartz or Xming running//
 
-for Exception in thread "main" java.awt.AWTError: Can't connect to X11 window server using 'host.docker.internal:0' as the value of the DISPLAY variable. run: sudo xhost +
+on mac: for Exception in thread "main" java.awt.AWTError: Can't connect to X11 window server using 'host.docker.internal:0' as the value of the DISPLAY variable. run: sudo xhost +
 
 docker pull nid45/cs1660-final
 
