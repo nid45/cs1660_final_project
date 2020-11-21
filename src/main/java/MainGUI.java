@@ -1,5 +1,3 @@
-
-
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
@@ -15,14 +13,10 @@ import com.google.cloud.Page;
 import com.google.cloud.storage.*;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
-import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
-import org.apache.commons.compress.utils.FileNameUtils;
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.LineIterator;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
@@ -204,14 +198,14 @@ public class MainGUI extends JDialog {
     private void onCancel() throws IOException {
         StringBuffer output = new StringBuffer();
         //gcp project info
-        String projectId = "bustling-vim-294815";
-        String cluster = "hadoop";
+        String projectId = gcpvars.projectId;
+        String cluster = gcpvars.cluster;
 
         //arg info for submitting job
         //input data folder
-        String arg1 = "dataproc-staging-us-central1-17322103279-q89zhjwt";
+        String arg1 = gcpvars.arg1;
         //output folder
-        String arg2 = "gs://dataproc-staging-us-central1-17322103279-q89zhjwt/";
+        String arg2 = gcpvars.arg2;
         String outputDir = "";
         File newDir = new File(System.getProperty("java.io.tmpdir"));
         Boolean success = false;
@@ -278,7 +272,7 @@ public class MainGUI extends JDialog {
                                             .setClusterName(cluster))
                                     .setHadoopJob(new HadoopJob()
                                             .setMainClass("InvertedIndex")
-                                            .setJarFileUris(ImmutableList.of("gs://dataproc-staging-us-central1-17322103279-q89zhjwt/JAR/Inverted.jar"))
+                                            .setJarFileUris(ImmutableList.of(arg2+"JAR/Inverted.jar"))
                                             .setArgs(ImmutableList.of(
                                                     "gs://" + arg1 + "/Data/" + rand_int, arg2 + "output" + rand_int)))))
                     .execute();
@@ -305,7 +299,7 @@ public class MainGUI extends JDialog {
         //modified from https://stackoverflow.com/questions/25141998/how-to-download-a-file-from-google-cloud-storage-with-java
         //and https://cloud.google.com/storage/docs/listing-objects
         try {
-            String bucketName = "dataproc-staging-us-central1-17322103279-q89zhjwt";
+            String bucketName = arg1;
             InputStream inputStream = new FileInputStream("./credentials.json");
             AuthCredentials credentials = AuthCredentials.createForJson(new FileInputStream("./credentials.json"));
 

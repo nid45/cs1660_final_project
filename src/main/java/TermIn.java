@@ -1,5 +1,3 @@
-
-
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
@@ -69,14 +67,14 @@ public class TermIn extends JDialog {
         term = textField1.getText();
         StringBuffer output = new StringBuffer();
         //gcp project info
-        String projectId = "bustling-vim-294815";
-        String cluster = "hadoop";
+        String projectId = gcpvars.projectId;
+        String cluster = gcpvars.cluster;
 
         //arg info for submitting job
         //input data folder
-        String arg1 = "dataproc-staging-us-central1-17322103279-q89zhjwt";
+        String arg1 = gcpvars.arg1;
         //output folder
-        String arg2 = "gs://dataproc-staging-us-central1-17322103279-q89zhjwt/";
+        String arg2 = gcpvars.arg2;
         String outputDir = "";
         File newDir = new File(System.getProperty("java.io.tmpdir"));
         Boolean success = false;
@@ -114,7 +112,7 @@ public class TermIn extends JDialog {
                                             .setClusterName(cluster))
                                     .setHadoopJob(new HadoopJob()
                                             .setMainClass("TermSearch")
-                                            .setJarFileUris(ImmutableList.of("gs://dataproc-staging-us-central1-17322103279-q89zhjwt/JAR/TermSearch.jar"))
+                                            .setJarFileUris(ImmutableList.of(arg2+"JAR/TermSearch.jar"))
                                             .setArgs(ImmutableList.of(
                                                     arg2 + "output" + rand_int, arg2 + "output" + rand_int + term, term)))))
                     .execute();
@@ -141,7 +139,7 @@ public class TermIn extends JDialog {
         //modified from https://stackoverflow.com/questions/25141998/how-to-download-a-file-from-google-cloud-storage-with-java
         //and https://cloud.google.com/storage/docs/listing-objects
         try {
-            String bucketName = "dataproc-staging-us-central1-17322103279-q89zhjwt";
+            String bucketName = arg1;
             InputStream inputStream = new FileInputStream("./credentials.json");
             AuthCredentials credentials = AuthCredentials.createForJson(new FileInputStream("./credentials.json"));
 
@@ -188,7 +186,7 @@ public class TermIn extends JDialog {
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         scrollPane.setPreferredSize(new Dimension(500, 500));
-        JOptionPane.showMessageDialog(null, scrollPane, "Inverted Index Results", JOptionPane.YES_NO_OPTION);
+        JOptionPane.showMessageDialog(null, scrollPane, "Term Search Results", JOptionPane.YES_NO_OPTION);
         if (JOptionPane.showConfirmDialog(null, "return to options menu", "WARNING",
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             dispose();
